@@ -1,0 +1,4 @@
+datasets==2.14.2
+fortepyan==0.2.4
+matplotlib==3.7.2
+streamlit==1.25.0
