@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 cols = st.columns(2)
 
 
-n_records = 10
+n_records = 20
 for it in range(n_records):
     record = dataset[it]
     col = it % 2

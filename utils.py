@@ -3,12 +3,10 @@ import fortepyan as ff
 from fortepyan import MidiPiece
 from fortepyan.audio import render as render_audio
 
-# from datasets import load_dataset
 from matplotlib import pyplot as plt
 
 
 def piece_av_files(piece: MidiPiece) -> dict:
-    # dataset = load_dataset("roszcz/maestro-v1-sustain", split="train")
     midi_file = os.path.basename(piece.source["midi_filename"])
     mp3_path = midi_file.replace(".midi", ".mp3")
     mp3_path = os.path.join("tmp", mp3_path)
