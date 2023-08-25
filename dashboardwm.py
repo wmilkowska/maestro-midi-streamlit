@@ -115,6 +115,29 @@ def main():
     else:
         filtered_dataset = dataset
 
+    random_piece = st.sidebar.button("Random piece")
+
+    if random_piece:
+        if filtered_dataset:
+            random_piece_idx = random.randint(0, len(dataset) - 1)
+            random_piece_record = dataset[random_piece_idx]
+
+            # Load the composer and title from the random piece record
+            composer = random_piece_record["composer"]
+            title = random_piece_record["title"]
+
+            selected_composer = None
+            search_by_title = None
+            filter_option = None
+
+            st.subheader("Random piece")
+            st.sidebar.markdown("### Chosen random Piece")
+            st.sidebar.write(f"**Composer:** {composer}")
+            st.sidebar.write(f"**Title:** {title}")
+            show_midi_pieces([random_piece_record], 1, 1)
+        else:
+            st.warning("No pieces found for the current filter.")
+            
     # Create a slider for page navigation
     pages = len(filtered_dataset) // pieces_per_page
     if pages > 1:
